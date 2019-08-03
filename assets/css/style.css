@@ -1,0 +1,381 @@
+/* 
+This stylesheet defines applied styles to the Basic Portfolio Bootcamp
+assignment due on July 27.
+Originally authored by Stephen L. Fox
+
+===========================================
+TABLE OF CONTENTS (by section)
+===========================================
+0.........  Default Tag Resets
+1.........  Custom Scaffolding
+2.........  Navigation
+            - Brandmark
+            - Main Nav Section
+3.........  Main Content Area
+4.........  Contact Modal
+5.........  Form Elements
+6.........  Portfolio Elements
+Y.........  Footer
+Z.........  Media Queries
+===========================================
+
+*/ 
+
+/* -- 0 - DEFAULT TAG RESETS --------------------------- */
+body {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    background: url('../images/lilypads.png') repeat #4aaaa5;
+    margin: 0px;
+    padding: 0px 0px 115px;
+    color: #777;
+    font-size: 18px;
+    line-height: 32px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', Times, 'Times New Roman', serif;
+    margin: 0px;
+    padding: 0px;
+}
+h2 {
+    font-size: 30px;
+    line-height: 30px;
+    padding: 10px 0px 25px;
+    color: #4aaaa5;
+    border-bottom: 2px solid #CCC;
+    margin-bottom: 30px;
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+a {
+    text-decoration: none;
+    transition: padding-right 0.5s;
+}
+a:hover {
+    cursor: pointer;
+}
+
+/* -- 1 - CUSTOM SCAFFOLDING ------------------- */
+.wrap-width.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    }
+    .wrap-width.row .half-width {
+        flex-basis: 50%;
+        margin: 2.5%;
+        padding: 2.5%;
+    }
+    .wrap-width.row .third-width {
+        flex-basis: 31.65%;
+        box-sizing: border-box;
+        padding: 2.5%;
+        margin: 2.5% 0%;
+        }
+        .wrap-width.row .third-width:nth-child(2){
+            margin: 2.5% 2.5%;
+        }
+        .wrap-width.row .third-width h3{
+            font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            color: #FFF;
+            text-shadow: 1px 1px 0px #333;
+            text-transform: uppercase;
+            background: #999;
+            padding: 5px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .full-width-flex-item {
+            width: 100%;
+        }
+
+/* -- 2 - NAVIGATION --------------------------- */
+div.nav-wrapper {
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    top: 0px;
+    background: #FFF;
+    border-bottom: 2px solid #CCC;
+    margin: 0px;
+    padding: 0px;
+    z-index: 5;
+    }
+    div.nav-wrapper nav {
+        width: 100%;
+        display: flex;
+        max-width: 960px;
+        margin: 0px auto;
+    }
+    div.brandmark {
+        line-height: 90px;
+        font-size: 30px;
+        font-weight: 700;
+        background: #4aaaa5;
+        padding: 0px 20px;
+        font-family: 'Georgia', Times, 'Times New Roman', serif;
+        color: #FFF;
+        min-width: 340px;
+        text-align: center;
+    }
+    div.brandmark a {
+        color: #FFF;
+    }
+    ul.main-nav {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-content: flex-end;
+        padding: 0px 20px;
+        flex-basis: calc(100% - 340px);
+        }
+        ul.main-nav li {
+            justify-content: right;
+            transition: all .5s ease 1.25s;
+            }
+            ul.main-nav li a {
+                padding: 0px 20px;
+                border-right: 1px solid #eaeaea;
+                text-decoration: none;
+                color: #777;
+                font-size: 1.1rem;
+                line-height: 90px;
+                }
+                ul.main-nav li a:hover {
+                    color: #000;
+                    text-decoration: underline;
+                }
+            ul.main-nav li:last-child a {
+                border-right: none;
+                padding: 0px 0px 0px 20px;
+            }
+
+/* -- 3 - MAIN CONTENT AREA --------------------------- */
+section.content {
+    background: #FFF;
+    max-width: 960px;
+    box-sizing: border-box;
+    margin: 130px auto 0px;
+    padding: 30px; 
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #CCC;
+    }
+    section.content .stephen-photo {
+        text-align: left;
+        float:left;
+        padding: 0px 30px 30px 0px;
+        clear: both;
+        display: block;
+    }
+    .top-tens {
+        max-width: 960px;
+        margin: 0px auto;
+        }
+        .top-tens .third-width {
+            background: #eaeaea;
+            border: 1px solid #666;
+            }
+            .top-tens .third-width ul{
+                padding: 0px 0px 0px 25px;
+            }
+
+/* -- 4 - CONTACT MODAL --------------------------- */
+section#contactModalContent {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0,0,0,0.3);
+    animation-name: animatefade;
+    animation-duration: 0.4s;
+    }
+    .modalClose {
+        color: #000;
+        font-size: 30px;
+        display:block;
+        position: relative;
+        top: -20px;
+        right: -15px;
+        float: right;
+    }
+    @keyframes animatefade {
+        from {opacity: 0}
+        to {opacity: 1}
+      }
+
+/* -- 5 - FORM ELEMENTS -------------------------- */
+form {
+    width: 100%;
+    }
+    form input, form textarea {
+        width: 100%;
+        border: 1px solid #CCC;
+        line-height: 20px;
+        border-radius: 3px;
+        padding: 5px;
+        margin-bottom: 10px;
+        }
+        form textarea {
+            height: 150px;
+        }
+        input::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+    .submitBtn {
+        max-width: 100px;
+        color: #FFF;
+        font-size: 16px;
+        background:  #4aaaa5;
+    }
+
+/* -- 6 - PORTFOLIO PAGE ------------------------ */
+.portfolio-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.portfolioitem {
+    flex-basis: calc(100% / 3 - 5%);
+    padding: 1.25%;
+    margin: 1.25% 1.25% 2.5% 1.25%;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    border: 1px solid #CCC;
+    }
+    .portfolioitem:hover {
+        transform: scale(1.1);
+        padding: 0%;
+    }
+    .portfolioitem h3 {
+        position: relative;
+        top: 160px;
+        display: block;
+        text-align: center;
+        width: 100%;
+        line-height: 70px;
+        color: #FFF;
+        background: rgba(74, 170, 165, 0.7);    
+    }
+    .portfolioitem img {
+        width: 100%;
+        margin-top: -70px;
+    }
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    width: 40%;
+    max-width: 750px;
+    top: 15vh;
+    padding: 20px;
+    border-radius: 10px;
+    background: #eaeaea;
+    border: 5px solid #FFF;
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.7);
+    left: 30%;
+    animation-name: lightboxFade;
+    animation-duration: .5s;
+    }
+    @keyframes lightboxFade {
+        from {opacity: 0 }
+        to {opacity: 1 }
+    }
+.fullsizeportitem img {
+    margin: 0px auto;
+    width: 100%;
+    height: intrinsic;
+    border-radius: 5px;
+    }
+    .closeportitem {
+        font-weight: 900;
+        color: #000;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background: #FFF;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50px;
+        border: 3px solid #999;
+        margin: 10px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 1s;
+        }
+        .closeportitem:hover {
+            opacity: 1.0;
+        }
+    .hide {
+        display: flex;
+    }
+
+/* -- Y - FOOTER --------------------------- */
+footer.sitewide-footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    border-top: 10px solid #4aaaa5;
+    text-align: center;
+    height: 30px;
+    background: #666;
+    color: #CCC;
+    font-size: .75rem;
+    padding-top: 30px;
+}
+/* -- Z - MEDIA QUERIES --------------------------- */
+@media only screen and (max-width: 960px) {
+    .portfolioitem {
+        flex-basis: 45%;
+    }
+}
+@media only screen and (max-width: 768px){
+    .wrap-width.row .third-width {
+        flex-basis: 100%;
+        margin: 2.5%;
+    }
+    ul.main-nav {
+        position: absolute;
+        width: 90%;
+        top: 90px;
+        z-index: 2;
+        background: #FFF;
+        border-bottom: #999 2px solid;
+        padding: 0px 20px;
+    }
+    div.brandmark {
+        width: 100%;
+    }
+    section.content {
+        margin: 200px 0px 115px;
+    }
+    section.content .stephen-photo {
+        max-width: 45%;
+        padding: 10px 10px 5px 0px
+    }
+    .lightbox {
+        left: 5%;
+        width: 80%;
+        max-width: 900px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .portfolioitem {
+        flex-basis: 75%;
+        margin: 1.25% auto 2.5%;
+    }
+    .portfolioitem h3 {
+        top: 155px;
+    }
+}
